@@ -23,7 +23,7 @@ class Node
 public class BottomView
 {
 
-    //Recursive Approach
+    //Recursive Approach Using Preorder
     int min = Integer.MAX_VALUE;
     int max = Integer.MIN_VALUE;
     public void helper(Node root, Map<Integer, Node> map, int hd)
@@ -42,14 +42,8 @@ public class BottomView
         {
             map.put(hd, root);
         }
-        if(hd < min)
-        {
-            min = hd;
-        }
-        if(hd > max)
-        {
-            max = hd;
-        }
+        min = Math.min(min, hd);
+        max = Math.max(max, hd);
         int rootLevel = root.hd;
         if(root.left != null)
         {
@@ -78,7 +72,7 @@ public class BottomView
     }
 
 
-    //Iterative Approach
+    //Iterative Approach Using Queue
     public ArrayList <Integer> bottomView(Node root)
     {
         int min = Integer.MAX_VALUE;
@@ -93,15 +87,8 @@ public class BottomView
         {
             Node temp = q.remove();
             hd = temp.hd;
-
-            if(temp.hd < min)
-            {
-                min = temp.hd;
-            }
-            if(temp.hd > max)
-            {
-                max = temp.hd;
-            }
+            min = Math.min(min, temp.hd);
+            max = Math.max(max, temp.hd);
             map.put(hd, temp.data);
             if(temp.left != null)
             {

@@ -45,9 +45,9 @@ public class BalancedBinaryTree{
 		boolean right=isBalanced(root.right);
 		int leftHeight=height(root.left);
 		int rightHeight=height(root.right);
-		if(left&&right&&(Math.abs(leftHeight-rightHeight)))
+		if(left&&right&&(Math.abs(leftHeight-rightHeight)<=1))
 			return true;
-		retrun false;        
+		return false;
     }
 	public static void main(String[] args) {
 		

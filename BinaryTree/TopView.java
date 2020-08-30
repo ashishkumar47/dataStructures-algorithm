@@ -14,8 +14,6 @@ class Pair
     }
 }
 
-
-
 public class TopView
 {
     static void topView(Node root)

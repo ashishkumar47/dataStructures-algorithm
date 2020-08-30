@@ -6,9 +6,9 @@ import java.io.*;
 
 
 
-piblic class FlattenList
+public class FlattenList
 {
-    static mergeSortedList(ListNode l1, ListNode l2)
+    static ListNode mergeSortedList(ListNode l1, ListNode l2)
     {
         if(l1 == null)
             return l2;

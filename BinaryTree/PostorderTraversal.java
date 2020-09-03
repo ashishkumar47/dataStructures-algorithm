@@ -10,39 +10,32 @@ public class PostorderTraversal
 
     //Iterative Approach
 
-    static ArrayList<Integer> postorderTraversal(Node root)
-    {
-        ArrayList<Integer>list = new ArrayList<>();
-        if(root == null)
-            return list;
-        Stack<Node> st = new Stack<>();
-        while(root != null)
-        {
+    static List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer>postOrder= new LinkedList<>();
+        if(root==null)
+            return postOrder;
+        Stack<TreeNode> st= new Stack<>();
+        while(root!=null){
             st.push(root);
-            root = root.left;
+            root=root.left;
         }
-        Node save = null;
-        while(!st.isEmpty())
-        {
-            Node temp = st.top();
-            if(temp.right != null&&temp.right!=save)
-            {
-                Node travRight = temp.right;
-                while(travRight != null)
-                {
-                    st.push(travRight);
-                    travRight = travRight.left;
-                }
+        TreeNode save=null;
+        while(!st.isEmpty()){
+            TreeNode topElement=st.peek();
+            if(topElement.right!=null&&save!=topElement.right){
+                TreeNode temp=topElement.right;
+                while(temp!=null){
+                    st.push(temp);
+                    temp=temp.left;
+                }                
             }
-            else
-            {
-                save = temp;
-                list.add(st.pop());
+            else{
+                save=st.peek();
+                postOrder.add(st.pop().val);
             }
         }
-        return list;
+        return postOrder;        
     }
-
 
 
     //Recursive Approach

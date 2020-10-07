@@ -1,10 +1,13 @@
-
-
+import java.util.*;
+import java.lang.*;
+import java.io.*;
 
 
 
 
 public class MaxSlidingWindow{
+
+	//BruteForce Approach
 	public int findMax(int[] nums,int start,int end){
         int maxElement=Integer.MIN_VALUE;
         while(start<=end){
@@ -26,5 +29,9 @@ public class MaxSlidingWindow{
             a[i]=elements.get(i);
         }
         return a;        
+    }
+
+    public static void main(String[] args) {
+    	
     }
 }
